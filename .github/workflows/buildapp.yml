@@ -119,6 +119,12 @@ jobs:
           echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
           (echo export PATH="/usr/local/opt/make/libexec/gnubin:$PATH" >> ~/.bash_profile)
           source ~/.bash_profile
+          
+      - name: Install libundirect
+        run: |
+          mkdir -p $THEOS/lib
+          curl -L https://github.com/akemin-dayo/undirect/releases/latest/download/libundirect.dylib -o $THEOS/lib/libundirect.dylib
+          curl -L https://github.com/akemin-dayo/undirect/releases/latest/download/libundirect.a -o $THEOS/lib/libundirect.a
 
       - name: Hash YT ipa url
         run: |
